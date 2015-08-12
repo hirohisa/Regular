@@ -26,8 +26,12 @@ import UIKit
 extension UIImage {
 
     public convenience init?(color: UIColor) {
+        self.init(color: color, size: CGSize(width: 1, height: 1))
+    }
 
-        let frameFor1px = CGRect(x: 0, y: 0, width: 1, height: 1)
+    public convenience init?(color: UIColor, size: CGSize) {
+
+        let frameFor1px = CGRect(x: 0, y: 0, width: size.width, height: size.height)
         UIGraphicsBeginImageContext(frameFor1px.size)
         let context = UIGraphicsGetCurrentContext()
         CGContextSetFillColorWithColor(context, color.CGColor)
